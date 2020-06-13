@@ -29,14 +29,11 @@ object WhatsWrong2 extends App {
   //Review this code. What could be done better ? How would you do it ?
   def getCEOAndEnterprise(ceo_id: Option[String]): Future[(Option[CEO], Option[Enterprise])] = {
     for {
-      ceo <- CEODao.byId(ceo_id.get)
-      enterprise <- EnterpriseDao.byCEOId(ceo_id.get)
       tuple = (CEODao.byId(ceo_id.get),EnterpriseDao.byCEOId(ceo_id.get))
     } yield {
       tuple
     }
-    
-    getCEOAndEnterprise(Option("1"))
+   
 
   }
 }
