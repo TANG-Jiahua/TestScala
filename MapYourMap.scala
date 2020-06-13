@@ -10,32 +10,22 @@ object MapYourMap extends App{
 
   val namesInDepartments:Map[String, List[String]] ={
     var map:Map[String,List[String]] = Map()
-    val keyName = devNames.keys
     val keyDep = devDepartments.keys
-    val name_iter = keyName.iterator
     val dep_iter = keyDep.iterator
 
     while (dep_iter.hasNext){
+     
       val keyD = dep_iter.next()
-
       var list : List[String] = List(devNames.get(keyD).get)
-
       if (map.contains(devDepartments.get(keyD).get)){
         println(devNames.get(keyD).get)
         var tmp : List[String] = map.get(devDepartments.get(keyD).get).get
         tmp = tmp :+ devNames(keyD)
         list=tmp
       }
-
-
       map += devDepartments(keyD)->list
 
-      println(keyD,devDepartments.get(keyD).get)
-
-      println(map)
-
-//      while (name_iter.h
     }
-    namesInDepartments
+    map
   }
 }
